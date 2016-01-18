@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+<title>SIAD Mobile</title>
+<link rel="stylesheet" href="css/jqm-custom-1.4.5.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css" />
+<link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/datebox/jqm-datebox.min.css" />
+<link rel="stylesheet" href="css/owl/owl.carousel.css">
+<link rel="stylesheet" href="css/owl/owl.theme.css" />
+<link rel="stylesheet" href="css/estilo.css" />
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery.ui.datepicker.js"></script>
+<script src="js/jquery.mobile.datepicker.js"></script>
+<script src="js/chart/Chart.min.js"></script>
+<script src="js/datebox/jqm-datebox.core.min.js"></script>
+<script src="js/datebox/jqm-datebox.mode.calbox.min.js"></script>
+<script src="js/datebox/jquery.mobile.datebox.i18n.pt-BR.utf8.js"></script>
+<!-- <script src="js/knob/jquery.knob.js"></script> -->
+<script src="js/owl/owl.carousel.min.js"></script>
+<script src="js/db.js"></script>
+<script src="js/accounting.js"></script>
+<script src="js/funcoes.js"></script>
+<script src="js/config.js"></script>
+<script src="js/atendimento.js"></script>
+<script src="js/javascripts.js"></script>
+</head>
+<body>
+
+    <!-- ////// INÍCIO ////// -->
+	<div data-role="page" id="inicio" data-theme="e">
+		<div data-role="panel" data-position="left" data-display="reveal" id="menu-principal" data-theme="b">
+			<ul data-role="listview" class="ui-nodisc-icon ui-alt-icon ui-listview" data-theme="b" data-inset="false">
+				<li data-theme="b"><strong>Menu principal</strong></li>
+				<li><a href="#agenda"><i class="fa fa-list"></i>Agenda</a></li>
+				<li><a href="#painel"><i class="fa fa-bar-chart-o"></i>Informações</a></li>
+				<li class="sair_app"><a href="#"><i class="fa fa-close"></i>Sair</a></li>
+			</ul>
+		</div><!-- /panel -->
+		<div data-role="header" data-position="fixed" data-theme="e">
+			<a href="#menu-principal" class="fa fa-bars"></a>
+			<h1>Início</h1>
+		</div><!-- /header -->
+		<div data-role="content">
+        	<table align="center" width="100%" class="tabela_home" cellpadding="0" cellspacing="0">
+            	<tr>
+                	<td align="center" data-url="#agenda">
+                    	<i class="fa fa-calendar fa-2x"></i>
+			            <p class="profile_address">
+            				Agenda
+            			</p>
+                    </td>
+                	<td align="center" data-url="#painel">
+                    	<i class="fa fa-bar-chart-o fa-2x"></i>
+			            <p class="profile_address">
+            				Informações
+            			</p>
+					</td>
+                </tr>
+            	<tr>
+                	<td align="center" data-url="#config">
+                    	<i class="fa fa-cog fa-2x"></i>
+			            <p class="profile_address">
+            				Configurações
+            			</p>
+                    </td>
+                	<td align="center" data-url="#mensagens">
+                    	<i class="fa fa-envelope fa-2x"></i>
+			            <p class="profile_address">
+            				Mensagens
+            			</p>
+					</td>
+                </tr>
+            	<tr>
+                	<td align="center" data-url="#" id="btn_sincronizar">
+                    	<i class="fa fa-refresh fa-2x"></i>
+			            <p class="profile_address">
+            				Atualizar
+            			</p>
+					</td>
+                    <td align="center" data-url="#" class="sair_app">
+                    	<i class="fa fa-close fa-2x"></i>
+			            <p class="profile_address">
+            				Sair
+            			</p>
+					</td>
+                </tr>
+            </table>
+		</div><!-- /content -->
+	</div><!-- /page -->
+    
+    <!-- ////// LOGIN ////// -->
+	<div data-role="page" id="login" data-theme="e">
+    	<div data-role="content">
+		<div style="margin-left:auto; margin-right:auto; width:16em; text-align:center; padding-top:30px">
+        	<img src="img/logo.png" width="128">
+			<h1 style="margin:0; color:#339999;" class="titulo-bloco">SIAD<span style="color:#339999; opacity:0.60; text-shadow:none !important;">Mobile</span></h1>
+			<h3 style="margin:0; color:#339999;" class="profile_texto">Sistema de Informações</h3>
+			<h3 style="margin:0; color:#339999;" class="profile_texto">Administrativas</h3>
+			<form style="margin-top:20px" name="formulario_login" id="formulario_login" method="post">
+    			<input type="text" data-theme="e" value="" placeholder="Login" name="form_login" id="form_login">
+	        	<input type="password" data-theme="e" value="" placeholder="Senha" name="form_senha" id="form_senha">
+		        <button data-theme="e" id="btn_registrar" type="submit">Registrar</button>
+    		</form>
+            <p class="profile_texto">Para o primeiro acesso é necessário estar conectado</p>
+		</div>
+        </div>
+	</div>
+    
+    <!-- ////// EXTRATO ////// -->
+    <div data-role="page" id="agenda" data-theme="e">
+		<div data-role="header" data-position="fixed" data-theme="e">
+			<a href="#" data-rel="back" class="fa fa-chevron-left"></a>
+			<h1>Agenda</h1>
+		</div><!-- /header -->
+    	<div data-role="content" id="content">
+            
+            <input type="text" data-role="date" data-inline="true" data-theme="e">
+            
+            <a href="#" data-role="button" data-theme="e" data-inline="true" id="btn-atualizar"><i class="fa fa-refresh"></i> Atualizar</a>
+            
+			<ul data-role="listview" data-inset="false" id="lista_atendimento" style="margin-top:20px !important; margin-bottom:20px !important;">
+			</ul>
+            
+		</div>
+    </div>
+    
+    <!-- ////// ANÁLISE FINANCEIRA ////// -->
+	<div data-role="page" id="painel" data-theme="c">
+		<div data-role="header" data-position="fixed" data-theme="c">
+			<a href="#" data-rel="back" class="fa fa-chevron-left"></a>
+			<h1>Painel de informações</h1>
+		</div><!-- /header -->
+    	<div data-role="content">
+        	<div class="card bg-blue">
+            	<h2 class="titulo-bloco white txt-center" style="margin:0; text-shadow:none !important;">Saldo da conta: <span style="opacity:0.8;" class="conta_saldo"></span></h2>
+            </div>
+            <div class="card bg-blue">
+            	<h2 class="titulo-bloco txt-center" style="margin-bottom:0;">Composição do saldo</h2>
+                <h3 class="titulo-bloco txt-center" style="margin-top:0; opacity:0.6;">depósitos x rendimentos</h3>
+            	<canvas id="myChart2" height="280" width="350"></canvas>
+            </div>
+            <br>
+        	<div class="card bg-blue">
+            	<h2 class="titulo-bloco white txt-center" style="text-shadow:none !important;">Evolução do saldo</h2>
+            	<canvas id="myChart1" height="280" width="350"></canvas>
+            </div>
+        	<div class="card bg-blue">
+            	<h2 class="titulo-bloco white txt-center" style="text-shadow:none !important;">Demonstrativo dos últimos lançamentos</h2>
+            	<canvas id="myChart3" height="280" width="350"></canvas>
+            </div>
+        </div>
+	</div>
+    
+</body>
+</html>
